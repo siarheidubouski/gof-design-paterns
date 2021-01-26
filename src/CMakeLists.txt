@@ -1,10 +1,3 @@
-option(QT "Enable compilation of QT sample" OFF)
-
-# qt
-if(QT)
-  message("Using Qt")
-  add_subdirectory(qt)
-endif()
 
 # Generic test that uses conan libs
 add_executable(intro main.cpp)
