@@ -11,7 +11,6 @@
 #========== Find Packages =====================#
 find_package(GTest REQUIRED)
 include(GoogleTest)
-
-add_executable(tests constexpr_test.cpp)
+add_executable(tests creational/Builder.cpp creational/FluentBuilder.cpp ../src/creational/Builder.h ../src/creational/FluentBuilder.h)
 target_link_libraries(tests GTest::GTest GTest::Main -lpthread)
 gtest_discover_tests(tests)
