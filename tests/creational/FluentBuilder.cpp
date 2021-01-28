@@ -12,8 +12,7 @@ static std::string build_html_tags() {
 
 TEST (FluentBuilderTest, htmlTags) {
 
-  HtmlBuilder builder{"ul"};
+  auto builder{ HtmlBuilder{"ul"} };
   builder.add_child("li", "Hello").add_child("li", "world!");
-
   EXPECT_EQ(build_html_tags(), builder.str());
 }

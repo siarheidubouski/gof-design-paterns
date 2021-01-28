@@ -11,6 +11,7 @@
 #========== Find Packages =====================#
 find_package(GTest REQUIRED)
 include(GoogleTest)
-add_executable(tests creational/Builder.cpp creational/FluentBuilder.cpp ../src/creational/Builder.h ../src/creational/FluentBuilder.h)
+add_executable(tests creational/Builder.cpp creational/FluentBuilder.cpp creational/GroovyBuilder.cpp
+                     ../src/creational/Builder.h ../src/creational/FluentBuilder.h ../src/creational/GroovyBuilder.h)
 target_link_libraries(tests GTest::GTest GTest::Main -lpthread)
 gtest_discover_tests(tests)
