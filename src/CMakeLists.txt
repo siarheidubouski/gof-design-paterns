@@ -1,7 +1,9 @@
+set(BINARY ${CMAKE_PROJECT_NAME})
 
-# Generic test that uses conan libs
-add_executable(intro main.cpp)
-target_link_libraries(
-  intro
-  PRIVATE project_options
-          project_warnings)
+
+file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
+
+set(SOURCES ${SOURCES})
+#add_executable(${BINARY}_run ${SOURCES})
+
+add_library(${BINARY}_lib STATIC ${SOURCES})

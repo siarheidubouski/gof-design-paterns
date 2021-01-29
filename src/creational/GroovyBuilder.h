@@ -4,23 +4,29 @@
 #include <string>
 #include <vector>
 
-namespace html {
-  struct Tag {
+namespace html
+{
+  struct Tag
+  {
     std::string name;
     std::string text;
     std::vector<Tag> children;
     std::vector<std::pair<std::string, std::string>> attributes;
 
-    friend std::ostream& operator<<(std::ostream& os, const Tag& tag) {
+    friend std::ostream& operator<<(std::ostream& os, const Tag& tag)
+    {
       os << "<" << tag.name;
 
-      for (const auto& att: tag.attributes) {
+      for (const auto& att: tag.attributes)
+      {
         os << " " << att.first << "=\"" << att.second << "\"";
       }
 
-      if (tag.children.size() == 0 && tag.text.length() == 0) {
+      if (tag.children.size() == 0 && tag.text.length() == 0)
+      {
         os << "/>" << std::endl;
-      } else {
+      } else
+      {
         os << ">" << std::endl;
 
         if (tag.text.length())
@@ -35,18 +41,22 @@ namespace html {
       return os;
     }
 
-    std::string get_html() {
+    std::string get_html()
+    {
       std::stringstream oss;
       
       oss << "<" << name;
 
-      for (const auto& att: attributes) {
+      for (const auto& att: attributes)
+      {
         oss << " " << att.first << "=\"" << att.second << "\"";
       }
 
-      if (children.size() == 0 && text.length() == 0) {
+      if (children.size() == 0 && text.length() == 0)
+      {
         oss << "/>" << std::endl;
-      } else {
+      } else
+      {
         oss << ">" << std::endl;
 
         if (text.length())
@@ -67,12 +77,14 @@ namespace html {
 
   };
 
-  struct P : Tag {
+  struct P : Tag
+  {
     P(const std::string& text) : Tag("p", text) {}
     P(std::initializer_list<Tag> children) : Tag{"p", children} {}
   };
 
-  struct IMG : Tag {
+  struct IMG : Tag
+  {
     explicit IMG(const std::string& url)
       : Tag{"img", ""}
     {

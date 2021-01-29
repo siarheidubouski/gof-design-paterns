@@ -5,14 +5,16 @@
 
 class HtmlBuilder;
 
-class HtmlElement {
+class HtmlElement
+{
  public:
   HtmlElement() {}
 
   HtmlElement(const std::string& name, const std::string& text)
     : m_name{ name }, m_text{ text } {}
 
-  std::string str(int indentation = 0) const {
+  std::string str(int indentation = 0) const
+  {
     std::ostringstream oss;
     std::string i(m_indentation * indentation, ' ');
     oss << i << "<" << m_name << ">" << std::endl;
@@ -44,14 +46,17 @@ class HtmlElement {
   const std::size_t m_indentation{ 2 };
 };
 
-class HtmlBuilder {
+class HtmlBuilder
+{
  public:
-  HtmlBuilder(const std::string& root_name) {
+  HtmlBuilder(const std::string& root_name)
+  {
     root.set_name(root_name);
   }
 
   HtmlBuilder& add_child(const std::string& child_name,
-      const std::string& child_text) {
+      const std::string& child_text)
+  {
     HtmlElement e{ child_name, child_text };
     root.get_elements().emplace_back(e);
 
